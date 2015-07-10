@@ -1,0 +1,79 @@
+git clone https://github.com/sidakpreetn-optimus/SCM_Induction.git
+mkdir Project1
+git clone https://github.com/sidakpreetn-optimus/SCM_Induction.git Project1
+
+
+cd SCM_Induction
+mkdir SourceCode
+cd SourceCode
+mkdir Tags
+cd Tags
+mkdir Delivery
+cd Delivery
+git add Test.txt
+git commit -m "Sub-folders created with last sub folder having Test.txt"
+git pull
+git push
+
+
+git add DummyFile.txt
+git commit -m "DummyFile.txt added in source code folder"
+git pull
+git push
+
+
+(Dummy File Modification)
+git add DummyFile.txt
+git commit -m "DummyFile.txt modified"
+git pull
+git push
+(Revert last commit)
+git revert aff6093210478cfce75980d86134c8102ffe1db2 (reverted from local)
+git pull
+git push (reverted from global)
+
+
+cd SourceCode
+mkdir Temp
+(create Temp.txt)
+cd Temp
+git add Temp.txt
+git commit -m "Temp.txt added in Temp folder in SourceCode folder"
+git pull
+git push
+(Now deleting this Temp folder)
+git rm -r Temp
+git commit -m "Temp folder deleted"
+git pull
+git push
+
+
+git revert 157743085db24a507795d42a755b032d303cc173 (updating to a previous version)
+git pull
+git push
+
+
+git log (checking all revisions through log)
+
+
+git add DummyFile.txt (after changing DummyFile.txt for understanding git diff command, running this command)
+git diff HEAD
+
+
+(Creating new Branch now)
+git checkout -b BugFixes
+touch Temp2.txt (creating new file for adding in branch)
+git commit -m "New branch BugFixes with Temp2.txt added"
+git pull
+git push --set-upstream origin BugFixes
+
+git tag -a NewTag HEAD~4 -m "Internal QA"
+git tag (For list of all tags)
+
+git add Temp2.txt (run command after making some changes)
+git commit -m "BugFixes Folder Temp2.txt file modified"
+git pull
+git push
+
+git checkout BugFixes
+git merge origin/master
